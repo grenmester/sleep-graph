@@ -4,4 +4,5 @@ all:
 
 .PHONY: clean
 clean:
-	rm output.md
+	rm -f output.md
+	rm -f time-output.md
