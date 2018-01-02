@@ -36,7 +36,7 @@ def removeExcessLines():
 def computeDailyTime():
     with open("time-output.md", "w") as data:
         data.write("date,time\n")
-    with open("bullet.md", "r") as source:
+    with open("unparsed.md", "r") as source:
         lines = source.readlines()
 
         sleepHours = 0
@@ -100,5 +100,5 @@ def computeStatistics():
     print("max hours: " + str(max(hours)))
 
 if __name__ == "__main__":
-  computeDailyTime()
-  computeStatistics()
+    computeDailyTime()
+    computeStatistics()
