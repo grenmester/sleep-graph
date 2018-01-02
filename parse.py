@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import statistics
 import datetime
 import dateutil
 import dateutil.parser
@@ -37,7 +38,6 @@ def computeDailyTime():
     with open("time-output.md", "w") as data:
         data.write("date,time\n")
     with open("bullet.md", "r") as source:
-        # FIXME: use all data after testing
         lines = source.readlines()
 
         sleepHours = 0
@@ -86,5 +86,20 @@ def computeDailyTime():
     with open("time-output.md", "a") as data:
         data.write(str(sleepHours/4.0) + "\n")
 
+def computeStatistics():
+    with open("bar-graph/data.csv", "r") as source:
+        lines = source.readlines()
+        hours = []
+        for line in lines[1:]:
+            line = line.split(",")[1]
+            hours.append(float(line))
+    print("mean hours: " + str(statistics.mean(hours)))
+    print("median hours: " + str(statistics.median(hours)))
+    print("mode hours: " + str(statistics.mode(hours)))
+    print("stdev hours: " + str(statistics.stdev(hours)))
+    print("min hours: " + str(min(hours)))
+    print("max hours: " + str(max(hours)))
+
 if __name__ == "__main__":
   computeDailyTime()
+  computeStatistics()
