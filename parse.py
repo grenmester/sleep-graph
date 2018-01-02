@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import statistics
 import datetime
 import dateutil
@@ -64,14 +63,14 @@ def computeDailyTime():
                     #print("two dates from " + date)
                     diff = dateutil.parser.parse("12:00 am") - (dateutil.parser.parse(time1) + dateutil.relativedelta.relativedelta(days=-1))
                     hours = str(diff).split(':')
-                    hours = int(hours[0]) * 4 + int(hours[1]) / 15
+                    hours = int(hours[0]) * 4 + int(hours[1]) // 15
                     #print("time1: " + str(time1))
                     #print("hours: " + str(hours))
                     sleepHours += hours
 
                     carryDiff = dateutil.parser.parse(time2) - dateutil.parser.parse("12:00 am")
                     carryHours = str(carryDiff).split(':')
-                    carryHours = int(carryHours[0]) * 4 + int(carryHours[1]) / 15
+                    carryHours = int(carryHours[0]) * 4 + int(carryHours[1]) // 15
                     #print("time2: " + str(time2))
                     #print("carry-hours: " + str(carryHours))
                 else:
@@ -79,7 +78,7 @@ def computeDailyTime():
                     diff = dateutil.parser.parse(time2) - dateutil.parser.parse(time1)
                     # add new hours to running total
                     hours = str(diff).split(':')
-                    hours = int(hours[0]) * 4 + int(hours[1]) / 15
+                    hours = int(hours[0]) * 4 + int(hours[1]) // 15
                     #print("hours: " + str(hours))
                     sleepHours += hours
 

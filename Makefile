@@ -1,6 +1,6 @@
 .PHONY: all
 all:
-	python parse.py
+	python3 parse.py
 
 .PHONY: clean
 clean:
