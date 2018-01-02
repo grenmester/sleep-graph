@@ -25,39 +25,6 @@ def computeIntervals():
                     data.write(firstDate)
                     data.write(secondDate)
 
-def oldComputeDailyTime():
-    with open("bullet.md", "r") as source:
-        lines = source.readlines()
-
-        for line in lines:
-            # Identity dates
-            if line[0] == "#":
-                date = line[2:-1]
-            # Identity and parse times
-            elif "* sleep" in line or "* nap" in line:
-                chunks = line.split()
-                time1 = date + " " + chunks[2] + " " + chunks[3]
-                time2 = date + " " + chunks[5] + " " + chunks[6]
-
-                #print("time1: " + str(time1))
-                #print("time2: " + str(time2))
-
-                diff = dateutil.parser.parse(time2) - dateutil.parser.parse(time1)
-                #print("diff: " + str(diff))
-
-                hours = str(diff).split(':')
-                hours = int(hours[0]) * 4 + int(hours[1]) / 15
-                #print("hours: " + str(hours))
-
-                with open("time-output.md", "a") as data:
-                    data.write(date[:-6])
-                    data.write(',')
-                    data.write(str(hours))
-                    data.write('\n')
-
-# TODO: account for periods spanning two days
-# TODO: get list of days with hours asleep
-
 def computeDailyTime():
     with open("time-output.md", "w") as data:
         data.write("date,time\n")
