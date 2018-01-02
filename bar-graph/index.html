@@ -10,12 +10,16 @@
   fill: brown;
 }
 
-.axis--x path {
+/*.axis--x path {
   display: none;
+}*/
+
+.axis--x g text {
+  fill:  white
 }
 
 </style>
-<svg width="960" height="500"></svg>
+<svg width="1300" height="500"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -42,7 +46,12 @@ d3.csv("data.csv", function(d) {
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x))
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.5em")
+      .attr("transform", "rotate(-90)");
 
   g.append("g")
       .attr("class", "axis axis--y")
