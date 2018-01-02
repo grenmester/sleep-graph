@@ -53,10 +53,10 @@ def computeDailyTime():
                 time2 = chunks[5] + " " + chunks[6]
                 # spans two days
                 if dateutil.parser.parse(time1) > dateutil.parser.parse(time2):
-                    diff = dateutil.parser.parse(time1) - dateutil.parser.parse("12:00 am")
+                    #print("two dates from " + date)
+                    diff = dateutil.parser.parse("12:00 am") - (dateutil.parser.parse(time1) + dateutil.relativedelta.relativedelta(days=-1))
                     hours = str(diff).split(':')
                     hours = int(hours[0]) * 4 + int(hours[1]) / 15
-                    hours = 96 - hours # fix negative time
                     #print("time1: " + str(time1))
                     #print("hours: " + str(hours))
                     sleepHours += hours
@@ -67,10 +67,12 @@ def computeDailyTime():
                     #print("time2: " + str(time2))
                     #print("carry-hours: " + str(carryHours))
                 else:
+                    #print("same date from " + date)
                     diff = dateutil.parser.parse(time2) - dateutil.parser.parse(time1)
                     # add new hours to running total
                     hours = str(diff).split(':')
                     hours = int(hours[0]) * 4 + int(hours[1]) / 15
+                    #print("hours: " + str(hours))
                     sleepHours += hours
 
     with open("time-output.md", "a") as data:
