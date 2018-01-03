@@ -1,0 +1,11 @@
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x g text {
+  fill:  white
+}
