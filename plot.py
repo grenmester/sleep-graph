@@ -81,6 +81,8 @@ def gen_plots(json_file, output_dir, org_file):
                 starts[k].append(start)
                 ends[k].append(end)
 
+    os.makedirs(output_dir, exist_ok=True)
+
     fig, ax = plt.subplots()
 
     for k in starts.keys():
@@ -91,9 +93,22 @@ def gen_plots(json_file, output_dir, org_file):
         durations = mpl_ends - mpl_starts
         start_times += 1  # So we have a valid date
 
-        ax.bar(start_days, durations, bottom=start_times)
+        ax.bar(start_days, durations, bottom=start_times, zorder=3)
 
-    os.makedirs(output_dir, exist_ok=True)
+    plt.xlabel('Date')
+    plt.ylabel('Time')
+    plt.title('Sleep Times')
+    ax.grid(which='minor', zorder=0)
+    ax.xaxis_date()
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%y'))
+    ax.xaxis.set_major_locator(mdates.DayLocator(interval=15))
+    ax.xaxis.set_minor_locator(mdates.DayLocator(interval=5))
+    ax.xaxis.set_tick_params(rotation=30)
+    ax.yaxis_date()
+    ax.yaxis.set_major_formatter(mdates.DateFormatter('%I:%M %p'))
+    ax.yaxis.set_major_locator(mdates.HourLocator(interval=2))
+    ax.yaxis.set_minor_locator(mdates.HourLocator())
+    plt.legend(starts.keys())
     plt.savefig(os.path.join(output_dir, 'graph.png'))
     plt.show()
 
