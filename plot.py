@@ -59,6 +59,11 @@ def gen_plots(json_file, output_dir, org_file):
     starts = {}
     ends = {}
 
+    # Used to compute the mean number of sleep hours.
+    first_day = dt.datetime(dt.MAXYEAR, 12, 31)
+    last_day = dt.datetime(dt.MINYEAR, 1, 1)
+    total_seconds = 0
+
     with open(json_file, 'r') as data:
         # Load data and convert to datetime objects
         data = json.load(data)
@@ -70,6 +75,9 @@ def gen_plots(json_file, output_dir, org_file):
                     interval['start'], '%m/%d/%Y %H:%M')
                 end = dt.datetime.strptime(interval['end'], '%m/%d/%Y %H:%M')
                 assert start < end, 'End time is earlier than start time'
+                first_day = min(first_day, start)
+                last_day = max(last_day, end)
+                total_seconds += (end - start).seconds
                 # Break up intervals so each interval is in one day
                 while start.day < end.day:
                     temp_end = dt.datetime(
@@ -84,6 +92,7 @@ def gen_plots(json_file, output_dir, org_file):
     os.makedirs(output_dir, exist_ok=True)
 
     fig, ax = plt.subplots()
+    fig.subplots_adjust(right=0.8)
 
     for k in starts.keys():
         mpl_starts = mdates.date2num(starts[k])
@@ -98,6 +107,7 @@ def gen_plots(json_file, output_dir, org_file):
     plt.xlabel('Date')
     plt.ylabel('Time')
     plt.title('Sleep Times')
+
     ax.grid(which='minor', zorder=0)
     ax.xaxis_date()
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%y'))
@@ -108,8 +118,15 @@ def gen_plots(json_file, output_dir, org_file):
     ax.yaxis.set_major_formatter(mdates.DateFormatter('%I:%M %p'))
     ax.yaxis.set_major_locator(mdates.HourLocator(interval=2))
     ax.yaxis.set_minor_locator(mdates.HourLocator())
-    plt.legend(starts.keys())
-    plt.savefig(os.path.join(output_dir, 'graph.png'))
+
+    num_days = (last_day - first_day).days
+    mean_hours = total_seconds / (3600 * num_days)
+    stats = f'Mean Hours:\n{mean_hours:.4f}'
+    ax.text(1.15, 0.6, stats, horizontalalignment='center',
+            transform=ax.transAxes)
+
+    ax.legend(starts.keys(), bbox_to_anchor=(1.15, 0.5), loc='center')
+    plt.savefig(os.path.join(output_dir, 'graph.png'), bbox_inches='tight')
     plt.show()
 
 
