@@ -1,3 +1,4 @@
+from collections import defaultdict
 import click
 import datetime as dt
 import json
@@ -8,16 +9,18 @@ import os
 
 def extract_sleep_data(json_file, org_file):
     '''Extract sleep data from org file into JSON.'''
+    sleep_words = ['sleep', 'nap']
     with open(org_file, 'r') as source:
         lines = source.readlines()
         date = ''
-        data = {'sleep': [], 'nap': []}
+        data = defaultdict(list)
         for line in lines:
             # Date information
             if line.startswith('*'):
                 date = line.strip('*').strip()
             # Sleep information
-            elif ('  - sleep' in line or '  - nap' in line) and date is not '':
+            elif any([f'  - {word}' in line for word in sleep_words]) \
+                    and date is not '':
                 split = line.split()
                 sleep_type = split[1]
                 start_time = split[2]
@@ -79,7 +82,7 @@ def gen_plots(json_file, output_dir, org_file):
                 last_day = max(last_day, end)
                 total_seconds += (end - start).seconds
                 # Break up intervals so each interval is in one day
-                while start.day < end.day:
+                while start.date() < end.date():
                     temp_end = dt.datetime(
                         start.year, start.month, start.day, 23, 59)
                     starts[k].append(start)
@@ -102,13 +105,14 @@ def gen_plots(json_file, output_dir, org_file):
         durations = mpl_ends - mpl_starts
         start_times += 1  # So we have a valid date
 
-        ax.bar(start_days, durations, bottom=start_times, zorder=3)
+        ax.bar(start_days, durations, align='edge',
+               bottom=start_times, width=0.9, zorder=3)
 
     plt.xlabel('Date')
     plt.ylabel('Time')
     plt.title('Sleep Times')
 
-    ax.grid(which='minor', zorder=0)
+    ax.grid(linewidth=0.1, which='minor', zorder=0)
     ax.xaxis_date()
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%y'))
     ax.xaxis.set_major_locator(mdates.DayLocator(interval=15))
