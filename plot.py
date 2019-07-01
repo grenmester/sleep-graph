@@ -108,6 +108,9 @@ def gen_plots(json_file, output_dir, org_file):
         ax.bar(start_days, durations, align='edge',
                bottom=start_times, width=0.9, zorder=3)
 
+    padding = dt.timedelta(days=1)
+    plt.xlim(first_day-padding, last_day+padding)
+    plt.ylim(2, 1)
     plt.xlabel('Date')
     plt.ylabel('Time')
     plt.title('Sleep Times')
