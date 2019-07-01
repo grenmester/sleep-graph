@@ -127,8 +127,10 @@ def gen_plots(json_file, output_dir, org_file):
     ax.yaxis.set_minor_locator(mdates.HourLocator())
 
     num_days = (last_day - first_day).days
-    mean_hours = total_seconds / (3600 * num_days)
-    stats = f'Mean Hours:\n{mean_hours:.4f}'
+    total_minutes = round(total_seconds / (60 * num_days))
+    mean_hours = total_minutes // 60
+    mean_minutes = total_minutes % 60
+    stats = f'Mean\nSleep Time:\n{mean_hours}h {mean_minutes}min'
     ax.text(1.15, 0.6, stats, horizontalalignment='center',
             transform=ax.transAxes)
 
