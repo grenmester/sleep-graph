@@ -82,3 +82,13 @@ where `foo.json` is the name of the `json` file the data gets output to and
 
 Lines that are not headlines and do not contain the word `sleep` or `nap` will
 be ignored.
+
+## Output
+
+Sample data is provided in the `example` directory.
+
+```bash
+python plot.py sample-data.json --org-file sample-data.org
+```
+
+![graph](example/graph.png)

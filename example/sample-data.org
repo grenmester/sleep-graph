@@ -1,0 +1,139 @@
+* Jun 8, 2018
+  - sleep 1:00 am - 8:30 am
+  - nap 8:30 pm - 11:00 pm
+
+* Jun 9, 2018
+  - sleep 4:30 am - 12:15 pm
+  - nap 3:30 pm - 5:45 pm
+
+* Jun 10, 2018
+  - sleep 3:45 am - 1:00 pm
+  - nap 5:30 pm - 8:30 pm
+
+* Jun 11, 2018
+  - sleep 3:00 am - 9:15 am
+
+* Jun 12, 2018
+  - sleep 1:00 am - 8:15 am
+
+* Jun 13, 2018
+  - sleep 2:00 am - 9:00 am
+  - nap 9:00 pm - 11:15 pm
+
+* Jun 14, 2018
+  - sleep 4:00 am - 9:15 am
+  - sleep 9:30 pm - 9:00 am
+
+* Jun 15, 2018
+
+* Jun 16, 2018
+  - sleep 3:00 am - 10:00 am
+  - nap 4:30 pm - 6:30 pm
+
+* Jun 17, 2018
+  - sleep 3:00 am - 12:00 pm
+  - nap 4:15 pm - 7:30 pm
+
+* Jun 18, 2018
+  - sleep 4:45 am - 9:00 am
+
+* Jun 19, 2018
+  - sleep 1:45 am - 9:00 am
+  - nap 9:30 am - 10:00 am
+  - nap 6:30 pm - 7:00 pm
+
+* Jun 20, 2018
+  - sleep 2:00 am - 9:00 am
+  - nap 9:30 am - 10:00 am
+  - nap 8:00 pm - 11:00 pm
+
+* Jun 21, 2018
+  - sleep 4:45 am - 9:30 am
+  - nap 8:45 pm - 11:00 pm
+
+* Jun 22, 2018
+  - sleep 4:15 am - 9:30 am
+
+* Jun 23, 2018
+  - sleep 2:00 am - 12:30 pm
+
+* Jun 24, 2018
+  - sleep 3:45 am - 1:15 pm
+  - nap 6:00 pm - 7:45 pm
+
+* Jun 25, 2018
+  - sleep 4:45 am - 8:45 am
+  - nap 9:30 am - 10:00 am
+  - nap 5:45 pm - 6:30 pm
+
+* Jun 26, 2018
+  - sleep 2:45 am - 9:15 am
+  - nap 7:00 pm - 12:15 am
+
+* Jun 27, 2018
+  - sleep 5:00 am - 9:00 am
+
+* Jun 28, 2018
+  - sleep 2:15 am - 9:00 am
+  - nap 9:30 am - 10:00 am
+  - nap 8:45 pm - 11:45 pm
+
+* Jun 29, 2018
+  - sleep 2:45 am - 9:00 am
+  - nap 9:30 am - 10:00 am
+  - sleep 9:00 pm - 9:30 am
+
+* Jun 30, 2018
+
+* Jul 1, 2018
+  - sleep 3:30 am - 12:30 pm
+
+* Jul 2, 2018
+  - sleep 3:15 am - 9:30 am
+
+* Jul 3, 2018
+  - sleep 12:45 am - 9:00 am
+  - nap 9:45 am - 10:00 am
+  - nap 5:15 pm - 6:00 pm
+  - nap 6:30 pm - 10:00 pm
+
+* Jul 4, 2018
+  - sleep 4:00 am - 9:00 am
+  - nap 3:30 pm - 7:15 pm
+
+* Jul 5, 2018
+  - sleep 2:30 am - 9:00 am
+  - nap 9:30 pm - 10:00 pm
+
+* Jul 6, 2018
+  - sleep 2:00 am - 9:00 am
+  - nap 6:30 pm - 7:00 pm
+
+* Jul 7, 2018
+  - sleep 3:00 am - 12:45 pm
+  - nap 3:00 pm - 6:15 pm
+
+* Jul 8, 2018
+  - sleep 5:00 am - 12:30 pm
+
+* Jul 9, 2018
+  - sleep 2:30 am - 9:30 am
+  - sleep 11:45 pm - 9:30 am
+
+* Jul 10, 2018
+  - nap 10:00 pm - 12:00 am
+
+* Jul 11, 2018
+  - sleep 4:30 am - 11:15 am
+  - nap 8:00 pm - 11:00 pm
+
+* Jul 12, 2018
+  - sleep 5:00 am - 9:00 am
+  - nap 8:30 pm - 1:00 am
+
+* Jul 13, 2018
+  - sleep 6:00 am - 9:15 am
+  - nap 4:15 pm - 6:30 pm
+
+* Jul 14, 2018
+  - sleep 1:15 am - 11:15 am
