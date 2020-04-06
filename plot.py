@@ -5,11 +5,12 @@ import json
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import os
+import re
 
 
 def extract_sleep_data(json_file, org_file):
     '''Extract sleep data from org file into JSON.'''
-    sleep_words = ['sleep', 'nap']
+    regex = r'  - (?:sleep|nap) 1?\d:[0-5]\d [ap]m - 1?\d:[0-5]\d [ap]m'
     with open(org_file, 'r') as source:
         lines = source.readlines()
         date = ''
@@ -19,8 +20,7 @@ def extract_sleep_data(json_file, org_file):
             if line.startswith('*'):
                 date = line.strip('*').strip()
             # Sleep information
-            elif any([f'  - {word}' in line for word in sleep_words]) \
-                    and date is not '':
+            elif date is not '' and re.match(regex, line):
                 split = line.split()
                 sleep_type = split[1]
                 start_time = split[2]
