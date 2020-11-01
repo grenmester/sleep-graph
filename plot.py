@@ -20,7 +20,7 @@ def extract_sleep_data(json_file, org_file):
             if line.startswith('*'):
                 date = line.strip('*').strip()
             # Sleep information
-            elif date is not '' and re.match(regex, line):
+            elif date != '' and re.match(regex, line):
                 split = line.split()
                 sleep_type = split[1]
                 start_time = split[2]
